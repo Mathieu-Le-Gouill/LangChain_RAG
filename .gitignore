@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+
+venv/
+.env/
+
+# Docker
+*.log
+
+# Uvicorn
+uvicorn.lock
+uv.lock
+
+# Python version manager
+.python-version
+
+# IDEs
+.vscode/
+.idea/
+*.iml
+
+# data
+data/
+.env

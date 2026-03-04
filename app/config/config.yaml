@@ -1,0 +1,28 @@
+embeddings:
+  provider: "huggingface"  # "huggingface", "openai", "ollama"
+  model_name: "sentence-transformers/all-mpnet-base-v2"
+  dimension: 768
+
+splitter:
+  chunk_size: 1000
+  chunk_overlap: 200
+  add_start_index: true
+
+loader:
+  type: "pdf"               # "pdf", "text", "csv"
+  path: "./data/archive/Pdf/"
+  glob: "*.pdf"
+
+vectorstore:
+  provider: "qdrant"        # "qdrant", "chroma"
+  collection_name: "langchain_rag"
+  distance_metric: "cosine"
+
+rag:
+  retriever_search_type: "similarity"  # "similarity", "mmr"
+  retriever_k: 2
+  llm_provider: "huggingface"
+  llm_model: "openai/gpt-oss-120b"
+  max_tokens: 2048
+  provider_params:
+    provider: "cerebras"
