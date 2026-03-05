@@ -1,4 +1,5 @@
 import os
+from torch import abs_
 import yaml
 from dotenv import load_dotenv
 from huggingface_hub import InferenceClient
@@ -6,11 +7,11 @@ from huggingface_hub import InferenceClient
 load_dotenv()
 
 # Load config
-def load_config(path: str = "app/config/config.yaml"):
+def load_config(path: str) -> dict:
     with open(path, "r") as f:
         return yaml.safe_load(f)
 
-config = load_config()
+config = load_config("app/config.yaml")
 
 # Setup LLM client
 llm_provider = config["rag"]["llm_provider"]
